@@ -6,10 +6,6 @@ import getArea
 
 
 
-# imgdir = '/home/ustc/文档/PANet-master/data/coco/images/train2017/'
-# annpath = '/home/ustc/文档/PANet-master/data/coco/annotations/my_instances_train2017.json'
-
-
 def create_image_info(image_id, file_name, image_size,
                       date_captured=datetime.datetime.utcnow().isoformat(' '),
                       license_id=1, coco_url="", flickr_url=""):
@@ -122,6 +118,8 @@ def convert(imgdir, annpath):
             ann_info = create_annotation_info(ann_id, img_id, cat_id, iscrowd, area, box, segmentation)
             coco_output['annotations'].append(ann_info)
             ann_id = ann_id + 1
+            
+    return coco_output
 
 
 
